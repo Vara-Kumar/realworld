@@ -10,7 +10,7 @@
 FROM node:18
 WORKDIR /app
 COPY package.json package-lock.json ./
-RUN npm install
+RUN npm install --force
 COPY . .
 RUN npm install -g @nrwl/cli
 RUN nx build
