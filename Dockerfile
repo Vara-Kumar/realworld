@@ -11,7 +11,8 @@ FROM node:14
 WORKDIR /app
 COPY package.json package-lock.json ./
 RUN npm install -g npm@6.14.18
-COPY . .e.json)
-RUN npm run build
+COPY . .
+RUN npm install -g @nrwl/cli
+RUN nx build
 EXPOSE 3000
 CMD ["npm", "start"]
