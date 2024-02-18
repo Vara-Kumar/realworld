@@ -6,9 +6,12 @@
 #EXPOSE 3000
 #CMD [ "npm", "start"]
 
-FROM node:18
-WORKDIR app
-COPY . .
-RUN rm package-lock.json
+# Use the official Node.js 14 image as the base image
+FROM node:14
+WORKDIR /app
+COPY package.json package-lock.json ./
 RUN npm install
-CMD ["node","apps/documentation/sidebars.js"]
+COPY . .e.json)
+RUN npm run build
+EXPOSE 3000
+CMD ["npm", "start"]
