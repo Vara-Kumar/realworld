@@ -10,7 +10,7 @@
 FROM node:14
 WORKDIR /app
 COPY package.json package-lock.json ./
-RUN npm install -g npm@latest
+RUN npm install -g npm@6.14.18
 COPY . .e.json)
 RUN npm run build
 EXPOSE 3000
