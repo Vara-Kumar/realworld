@@ -6,10 +6,9 @@
 #EXPOSE 3000
 #CMD [ "npm", "start"]
 
-FROM node:12.2.0-alpine
+FROM node:14
 WORKDIR app
 COPY . .
 RUN npm install
-RUN npm run test
 EXPOSE 3000
-CMD ["npm","start"]
+CMD ["node","start"]
