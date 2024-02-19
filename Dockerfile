@@ -35,7 +35,7 @@ RUN npm install -g npm@latest
 COPY . .
 
 # Build the Angular application with production configuration
-RUN npm run build -- --prod
+RUN npx nx build --prod
 
 # Stage 2: Serve the Angular application using NGINX
 FROM nginx:alpine
