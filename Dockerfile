@@ -4,7 +4,7 @@ COPY . .
 RUN npm install
 RUN npm run build
 FROM nginx:alpine
-COPY --from-angular /app/dist/realworld /usr/share/nginx/html
+COPY --from=angular /app/dist/realworld /usr/share/nginx/html
 
 # Use the official Node.js 14 image as the base image
 #FROM node:18
