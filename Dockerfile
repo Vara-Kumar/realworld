@@ -29,13 +29,13 @@ RUN npm install -g @nrwl/cli
 COPY package*.json ./
 
 # Install dependencies
-RUN npm install -g npm@latest
+RUN npm install
 
 # Copy the rest of the application code to the container
 COPY . .
 
 # Build the Angular application with production configuration
-RUN npx nx build --prod
+RUN nx build --prod
 
 # Stage 2: Serve the Angular application using NGINX
 FROM nginx:alpine
