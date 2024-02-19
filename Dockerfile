@@ -1,11 +1,10 @@
-FROM node:16-alpine3.11 as angular
+FROM node:latest as angular
 WORKDIR /app
 COPY . .
 RUN npm install
 RUN npm run build
-FROM httpd:apline3.15
-WORKDIR /usr/local/apache2/htdocs
-COPY --from-angular /app/dist/realworld .
+FROM nginx:alpine
+COPY --from-angular /app/dist/realworld /usr/share/nginx/html
 
 # Use the official Node.js 14 image as the base image
 #FROM node:18
