@@ -22,6 +22,9 @@ FROM node:18
 
 WORKDIR /app
 
+# Install dependencies globally
+RUN npm install -g @nrwl/cli
+
 # Copy package.json and package-lock.json to the container
 COPY package*.json ./
 
@@ -45,5 +48,6 @@ EXPOSE 80
 
 # Command to start NGINX server
 CMD ["nginx", "-g", "daemon off;"]
+
 
 
